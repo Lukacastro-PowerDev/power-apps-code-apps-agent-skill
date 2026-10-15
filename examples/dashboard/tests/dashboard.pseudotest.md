@@ -1,0 +1,1 @@
+- validates KPI rendering and no-data state

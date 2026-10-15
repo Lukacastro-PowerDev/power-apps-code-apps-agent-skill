@@ -1,0 +1,139 @@
+{
+  "version": "0.1.0",
+  "entries": [
+    {
+      "id": "playbook-sharepoint-discovery",
+      "category": "playbook",
+      "whenToUse": [
+        "Need SharePoint site/list/schema discovery",
+        "Task depends on list internal names"
+      ],
+      "prerequisites": [
+        "Access to project generated models/services or documented schema"
+      ],
+      "relatedArtifacts": [
+        "skills/discovery/sharepoint-schema-discovery.md",
+        "skills/sharepoint/schema-and-internal-names.md"
+      ],
+      "risks": [
+        "Display name/internal name confusion",
+        "Invented columns"
+      ],
+      "validations": [
+        "Run npm run validate:schema",
+        "Cross-check internal names against observed artifacts"
+      ],
+      "tags": [
+        "sharepoint",
+        "schema",
+        "discovery"
+      ]
+    },
+    {
+      "id": "pattern-feature-module",
+      "category": "pattern",
+      "whenToUse": [
+        "Implementing new feature pages",
+        "Need maintainable module boundaries"
+      ],
+      "prerequisites": [
+        "Architecture baseline chosen"
+      ],
+      "relatedArtifacts": [
+        "skills/architecture/feature-modules.md",
+        "templates/feature-module/feature-module-template.md"
+      ],
+      "risks": [
+        "Cross-layer coupling",
+        "Scattered business rules"
+      ],
+      "validations": [
+        "Run npm run validate:agent-rules"
+      ],
+      "tags": [
+        "architecture",
+        "modularity"
+      ]
+    },
+    {
+      "id": "checklist-security-review",
+      "category": "checklist",
+      "whenToUse": [
+        "Before merge/release",
+        "Permission or PII handling changes"
+      ],
+      "prerequisites": [
+        "Implementation complete"
+      ],
+      "relatedArtifacts": [
+        "skills/security/threat-model.md",
+        "templates/security-review/security-review-template.md",
+        "tests/security/security-evaluation-scenarios.md"
+      ],
+      "risks": [
+        "Secrets leakage",
+        "Over-permissioned access"
+      ],
+      "validations": [
+        "Run npm run validate",
+        "Review DoD in relevant skill"
+      ],
+      "tags": [
+        "security",
+        "review",
+        "dod"
+      ]
+    },
+    {
+      "id": "anti-pattern-direct-http",
+      "category": "anti-pattern",
+      "whenToUse": [
+        "Reviewing data access implementation"
+      ],
+      "prerequisites": [
+        "Data-source operation exists"
+      ],
+      "relatedArtifacts": [
+        "skills/sharepoint/crud-pagination-filters.md",
+        "skills/dataverse/entities-relationships-types.md"
+      ],
+      "risks": [
+        "Bypassing generated contracts",
+        "Unvalidated payloads"
+      ],
+      "validations": [
+        "Search for fetch/axios misuse in data layer"
+      ],
+      "tags": [
+        "anti-pattern",
+        "data-layer",
+        "security"
+      ]
+    },
+    {
+      "id": "template-agent-task-plan",
+      "category": "template",
+      "whenToUse": [
+        "Starting a new implementation task"
+      ],
+      "prerequisites": [
+        "Task statement available"
+      ],
+      "relatedArtifacts": [
+        "templates/agent-task-plan/agent-task-plan-template.md",
+        "AGENTS.md"
+      ],
+      "risks": [
+        "Skipping evidence collection",
+        "Unbounded scope"
+      ],
+      "validations": [
+        "Plan includes assumptions, validations, and stop rules"
+      ],
+      "tags": [
+        "planning",
+        "governance"
+      ]
+    }
+  ]
+}

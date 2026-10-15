@@ -1,0 +1,16 @@
+{
+  "note": "EXAMPLE ONLY - fictitious schema",
+  "table": "cr7a_request",
+  "columns": [
+    {
+      "logicalName": "cr7a_name",
+      "type": "String",
+      "required": true
+    },
+    {
+      "logicalName": "cr7a_status",
+      "type": "Choice",
+      "required": true
+    }
+  ]
+}

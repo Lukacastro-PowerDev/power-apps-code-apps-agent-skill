@@ -1,0 +1,2 @@
+- validates table logical names only
+- validates pagination/error handling
