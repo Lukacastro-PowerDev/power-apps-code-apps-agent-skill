@@ -1,0 +1,2 @@
+- validates loading/empty/error/success states
+- validates choice payload mapping

@@ -1,0 +1,18 @@
+{
+  "note": "EXAMPLE ONLY - fictitious schema",
+  "list": "Requests",
+  "fields": [
+    {
+      "displayName": "Title",
+      "internalName": "Title",
+      "type": "Text",
+      "required": true
+    },
+    {
+      "displayName": "Priority",
+      "internalName": "Priority",
+      "type": "Choice",
+      "required": true
+    }
+  ]
+}

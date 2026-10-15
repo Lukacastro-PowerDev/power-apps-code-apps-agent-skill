@@ -1,0 +1,29 @@
+{
+  "name": "power-apps-code-apps-agent-skill",
+  "version": "0.1.0",
+  "description": "Universal operational skill library for AI agents building Power Apps Code Apps with SharePoint and Dataverse.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "inspect": "node dist/scripts/inspect-project.js",
+    "validate:schema": "node dist/scripts/validate-schema.js",
+    "validate:agent-rules": "node dist/scripts/validate-agent-rules.js",
+    "generate:context-index": "node dist/scripts/generate-context-index.js",
+    "validate:library": "node dist/scripts/validate-library.js",
+    "validate": "npm run build && npm run inspect && npm run validate:agent-rules && npm run validate:library && npm run validate:schema && npm run generate:context-index",
+    "test": "npm run build && node dist/tests/run-tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lukacastro-PowerDev/power-apps-code-apps-agent-skill.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2"
+  },
+  "private": true
+}

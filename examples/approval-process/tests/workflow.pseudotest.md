@@ -1,0 +1,2 @@
+- validates legal state transitions
+- validates rejection reason requirement

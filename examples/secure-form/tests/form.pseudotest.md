@@ -1,0 +1,2 @@
+- validates input sanitization
+- validates no sensitive fields in logs
