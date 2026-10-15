@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/permission-matrix.schema.json",
+  "title": "PermissionMatrix",
+  "type": "object",
+  "required": ["roles"],
+  "properties": {
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "actions"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["read", "create", "update", "delete", "approve", "export", "admin"]
+            },
+            "minItems": 1
+          },
+          "conditions": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": false
+}

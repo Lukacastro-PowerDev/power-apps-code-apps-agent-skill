@@ -14,6 +14,6 @@ function walk(dir: string, base = ""): string[] {
   return out;
 }
 
-const files = ["library", "skills", "templates", "examples", "adapters"].flatMap((d) => walk(d)).sort();
+const files = ["library", "core", "domains", "skills", "templates", "examples", "adapters", "docs"].flatMap((d) => walk(d)).sort();
 writeFileSync("library/context-index.generated.json", JSON.stringify({ files }, null, 2) + "\n");
 console.log(`Generated deterministic context index with ${files.length} files.`);

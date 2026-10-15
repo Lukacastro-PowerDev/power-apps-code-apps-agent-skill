@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EvalScore",
+  "type": "object",
+  "required": ["generatedAt", "finalScore", "results"],
+  "properties": {
+    "generatedAt": { "type": "string" },
+    "finalScore": { "type": "number", "minimum": 0, "maximum": 100 },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "passed", "score", "missing", "violations"],
+        "properties": {
+          "id": { "type": "string" },
+          "passed": { "type": "boolean" },
+          "score": { "type": "number" },
+          "missing": { "type": "array", "items": { "type": "string" } },
+          "violations": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

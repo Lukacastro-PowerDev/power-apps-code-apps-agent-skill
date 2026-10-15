@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/decision-record.schema.json",
+  "title": "DecisionRecord",
+  "type": "object",
+  "required": ["id", "title", "status", "context", "decision", "consequences", "evidenceRefs"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "status": { "type": "string", "enum": ["proposed", "accepted", "deprecated", "superseded"] },
+    "context": { "type": "string" },
+    "decision": { "type": "string" },
+    "consequences": { "type": "array", "items": { "type": "string" } },
+    "evidenceRefs": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+  },
+  "additionalProperties": false
+}

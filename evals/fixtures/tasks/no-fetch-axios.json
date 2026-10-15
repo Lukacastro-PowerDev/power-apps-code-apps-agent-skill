@@ -1,0 +1,6 @@
+{
+  "id": "no-fetch-axios",
+  "prompt": "Avoid direct fetch/axios in SharePoint data layer.",
+  "required": ["generated services"],
+  "forbidden": ["fetch(", "axios"]
+}

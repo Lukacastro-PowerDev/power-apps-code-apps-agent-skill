@@ -1,5 +1,9 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
+  "compatibility": {
+    "keepsV01Structure": true,
+    "domainRegistry": "domains/registry.json"
+  },
   "entries": [
     {
       "id": "playbook-sharepoint-discovery",
@@ -23,11 +27,25 @@
         "Run npm run validate:schema",
         "Cross-check internal names against observed artifacts"
       ],
-      "tags": [
-        "sharepoint",
-        "schema",
-        "discovery"
-      ]
+      "tags": ["sharepoint", "schema", "discovery"]
+    },
+    {
+      "id": "playbook-dataverse-discovery",
+      "category": "playbook",
+      "whenToUse": [
+        "Need Dataverse table/column mapping",
+        "Task depends on logical names"
+      ],
+      "prerequisites": [
+        "Access to generated metadata or documented schema"
+      ],
+      "relatedArtifacts": [
+        "skills/discovery/dataverse-discovery.md",
+        "skills/dataverse/entities-relationships-types.md"
+      ],
+      "risks": ["Display/logical name confusion", "Unverified environment assumptions"],
+      "validations": ["Run npm run validate:schema"],
+      "tags": ["dataverse", "schema", "discovery"]
     },
     {
       "id": "pattern-feature-module",
@@ -36,24 +54,14 @@
         "Implementing new feature pages",
         "Need maintainable module boundaries"
       ],
-      "prerequisites": [
-        "Architecture baseline chosen"
-      ],
+      "prerequisites": ["Architecture baseline chosen"],
       "relatedArtifacts": [
         "skills/architecture/feature-modules.md",
         "templates/feature-module/feature-module-template.md"
       ],
-      "risks": [
-        "Cross-layer coupling",
-        "Scattered business rules"
-      ],
-      "validations": [
-        "Run npm run validate:agent-rules"
-      ],
-      "tags": [
-        "architecture",
-        "modularity"
-      ]
+      "risks": ["Cross-layer coupling", "Scattered business rules"],
+      "validations": ["Run npm run validate:agent-rules"],
+      "tags": ["architecture", "modularity"]
     },
     {
       "id": "checklist-security-review",
@@ -62,78 +70,82 @@
         "Before merge/release",
         "Permission or PII handling changes"
       ],
-      "prerequisites": [
-        "Implementation complete"
-      ],
+      "prerequisites": ["Implementation complete"],
       "relatedArtifacts": [
         "skills/security/threat-model.md",
-        "templates/security-review/security-review-template.md",
-        "tests/security/security-evaluation-scenarios.md"
+        "skills/security/security-gates.md",
+        "templates/security-review/security-review-template.md"
       ],
-      "risks": [
-        "Secrets leakage",
-        "Over-permissioned access"
-      ],
-      "validations": [
-        "Run npm run validate",
-        "Review DoD in relevant skill"
-      ],
-      "tags": [
-        "security",
-        "review",
-        "dod"
-      ]
+      "risks": ["Secrets leakage", "Over-permissioned access"],
+      "validations": ["Run npm run validate", "Run npm run validate:security"],
+      "tags": ["security", "review", "dod"]
     },
     {
       "id": "anti-pattern-direct-http",
       "category": "anti-pattern",
-      "whenToUse": [
-        "Reviewing data access implementation"
-      ],
-      "prerequisites": [
-        "Data-source operation exists"
-      ],
+      "whenToUse": ["Reviewing data access implementation"],
+      "prerequisites": ["Data-source operation exists"],
       "relatedArtifacts": [
         "skills/sharepoint/crud-pagination-filters.md",
         "skills/dataverse/entities-relationships-types.md"
       ],
-      "risks": [
-        "Bypassing generated contracts",
-        "Unvalidated payloads"
-      ],
-      "validations": [
-        "Search for fetch/axios misuse in data layer"
-      ],
-      "tags": [
-        "anti-pattern",
-        "data-layer",
-        "security"
-      ]
+      "risks": ["Bypassing generated contracts", "Unvalidated payloads"],
+      "validations": ["Run npm run validate:security"],
+      "tags": ["anti-pattern", "data-layer", "security"]
     },
     {
       "id": "template-agent-task-plan",
       "category": "template",
-      "whenToUse": [
-        "Starting a new implementation task"
-      ],
-      "prerequisites": [
-        "Task statement available"
-      ],
+      "whenToUse": ["Starting a new implementation task"],
+      "prerequisites": ["Task statement available"],
       "relatedArtifacts": [
         "templates/agent-task-plan/agent-task-plan-template.md",
         "AGENTS.md"
       ],
-      "risks": [
-        "Skipping evidence collection",
-        "Unbounded scope"
+      "risks": ["Skipping evidence collection", "Unbounded scope"],
+      "validations": ["Plan includes assumptions, validations, and stop rules"],
+      "tags": ["planning", "governance"]
+    },
+    {
+      "id": "pack-platform-alm",
+      "category": "domain-pack",
+      "whenToUse": ["Planning Power Platform ALM and release process"],
+      "prerequisites": ["Environment strategy identified"],
+      "relatedArtifacts": [
+        "skills/platform/environment-strategy.md",
+        "skills/platform/deployment-pipelines.md",
+        "skills/platform/rollback-and-release.md"
       ],
-      "validations": [
-        "Plan includes assumptions, validations, and stop rules"
+      "risks": ["Environment drift", "Pipeline inconsistency"],
+      "validations": ["Run npm run validate:docs"],
+      "tags": ["platform", "alm", "governance"]
+    },
+    {
+      "id": "pack-ui",
+      "category": "domain-pack",
+      "whenToUse": ["Designing application UI and UX states"],
+      "prerequisites": ["Product flow defined"],
+      "relatedArtifacts": [
+        "skills/ui/design-system-and-layouts.md",
+        "skills/ui/states-accessibility-i18n.md",
+        "skills/ui/product-templates.md"
       ],
-      "tags": [
-        "planning",
-        "governance"
-      ]
+      "risks": ["Missing accessibility", "Missing loading/empty/error states"],
+      "validations": ["Run npm run validate:security", "Run npm run evals"],
+      "tags": ["ui", "accessibility", "product"]
+    },
+    {
+      "id": "pack-integrations",
+      "category": "domain-pack",
+      "whenToUse": ["Adding external integrations"],
+      "prerequisites": ["Approved connector or endpoint policy"],
+      "relatedArtifacts": [
+        "skills/integrations/power-automate-graph-sql-functions.md",
+        "skills/integrations/custom-connectors-rest-throttling.md"
+      ],
+      "risks": ["Policy violations", "Resilience gaps"],
+      "validations": ["Run npm run validate:security"],
+      "tags": ["integrations", "security", "resilience"]
     }
   ]
 }

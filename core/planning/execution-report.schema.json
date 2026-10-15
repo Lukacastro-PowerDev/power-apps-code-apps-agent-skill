@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/execution-report.schema.json",
+  "title": "ExecutionReport",
+  "type": "object",
+  "required": ["taskSummary", "evidenceUsed", "changes", "validation", "securityAccessibility", "risksLimitations", "nextSteps"],
+  "properties": {
+    "taskSummary": {
+      "type": "object",
+      "required": ["objective", "scope"],
+      "properties": {
+        "objective": { "type": "string" },
+        "scope": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "evidenceUsed": {
+      "type": "object",
+      "required": ["observedSchemaFiles", "generatedServicesModelsReviewed", "nonVerifiedAssumptions"],
+      "properties": {
+        "observedSchemaFiles": { "type": "array", "items": { "type": "string" } },
+        "generatedServicesModelsReviewed": { "type": "array", "items": { "type": "string" } },
+        "nonVerifiedAssumptions": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "changes": {
+      "type": "object",
+      "required": ["filesChanged", "patternsTemplatesApplied"],
+      "properties": {
+        "filesChanged": { "type": "array", "items": { "type": "string" } },
+        "patternsTemplatesApplied": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "validation": {
+      "type": "object",
+      "required": ["commandsRun", "results"],
+      "properties": {
+        "commandsRun": { "type": "array", "items": { "type": "string" } },
+        "results": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "securityAccessibility": {
+      "type": "object",
+      "required": ["securityChecks", "accessibilityChecks"],
+      "properties": {
+        "securityChecks": { "type": "array", "items": { "type": "string" } },
+        "accessibilityChecks": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "risksLimitations": { "type": "array", "items": { "type": "string" } },
+    "nextSteps": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "./core/planning/context-plan.schema.json",
+  "project": {
+    "name": "contoso-code-app",
+    "mode": "standard",
+    "defaultDomain": "sharepoint"
+  },
+  "context": {
+    "maxArtifacts": 12,
+    "requireEvidenceLevels": ["observed", "generated", "official"]
+  },
+  "validation": {
+    "runSecurityGates": true,
+    "runEvals": true,
+    "reportPath": ".agent/final-report.json"
+  }
+}

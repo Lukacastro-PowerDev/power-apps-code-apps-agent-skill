@@ -1,0 +1,14 @@
+# EXAMPLE ONLY
+# Project-level configuration. This file is not automatically parsed by validations.
+# Use power-apps-skill.config.example.json for machine consumption.
+project:
+  name: "contoso-code-app"
+  mode: "standard" # advisory | standard | strict | regulated
+  defaultDomain: "sharepoint"
+context:
+  maxArtifacts: 12
+  requireEvidenceLevels: ["observed", "generated", "official"]
+validation:
+  runSecurityGates: true
+  runEvals: true
+  reportPath: ".agent/final-report.json"

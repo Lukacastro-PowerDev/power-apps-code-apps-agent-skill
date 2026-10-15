@@ -1,0 +1,6 @@
+{
+  "id": "accessibility-basics",
+  "prompt": "Include accessibility checks.",
+  "required": ["accessibility", "keyboard", "contrast"],
+  "forbidden": ["ignore wcag"]
+}

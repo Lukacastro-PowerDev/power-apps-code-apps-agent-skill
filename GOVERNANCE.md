@@ -1,16 +1,17 @@
-# GOVERNANCE
+# GOVERNANCE (v0.2)
 
 ## Normative language
-- **MUST**: mandatory requirement.
-- **SHOULD**: strong recommendation with explicit rationale if not followed.
-- **MAY**: optional.
+- MUST, SHOULD, MAY follow RFC-style usage.
 
-## Decision model
-Architecture and policy changes SHOULD be captured as ADRs (`templates/adr/adr-template.md`).
+## Governance model
+- Core contract in `AGENTS.md` + `core/`.
+- Domain packs registered in `domains/registry.json`.
+- Architecture/policy changes should be recorded via ADR template.
 
 ## Evidence policy
-- Repository-observed facts MUST include file/path evidence.
-- External platform details MAY change and must be marked: "verify against current official documentation".
+- Observed/generated evidence is preferred for implementation.
+- Example-only artifacts must be labeled `EXAMPLE ONLY`.
+- Mutable platform details must include: `verify against current official documentation`.
 
 ## Versioning
-This project follows semantic versioning for documented releases in `CHANGELOG.md`.
+Semantic versioning with release notes in `CHANGELOG.md`.

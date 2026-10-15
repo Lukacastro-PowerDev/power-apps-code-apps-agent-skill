@@ -1,12 +1,30 @@
 # CHANGELOG
 
-## [0.1.0] - 2026-10-15
+## [0.2.0] - 2026-10-15
 ### Added
-- First complete operational version of `power-apps-code-apps-agent-skill`.
-- Universal agent contract (`AGENTS.md`) and governance docs.
-- Indexed library with decision tree and context loading protocol.
-- Detailed skills/playbooks for discovery, architecture, SharePoint, Dataverse, implementation, security, quality, and reference.
-- Reusable templates for pages, services, ADRs, planning, schema docs, and security review.
-- Didactic examples for SharePoint CRUD, Dataverse CRUD, dashboard, approval process, and secure form.
-- Deterministic TypeScript validation scripts and tests.
-- Adapters for GitHub Copilot, Claude Code, Codex, Cursor, and generic-compatible agents.
+- `skill-manifest.json` and project config examples (`yaml` + `json`).
+- `core/` operational protocol, evidence model, schemas, planning/reporting artifacts, and policies.
+- `.agent/README.md` artifact lifecycle guidance.
+- Domain registry (`domains/registry.json`) and compatibility alias (`registry/domain-packs.json`).
+- CLI and scripts for `inspect`, `context`, `validate`, `pack`, and `report`.
+- Deterministic `tools` equivalents via scripts: context planner, docs validator, packer, security gates.
+- Security authorization matrix docs and templates.
+- Platform/UI/Integrations domain packs.
+- Executable local eval runner with fixtures and score JSON output.
+- CI workflows (`validate`, `security`, `links`) and GitHub templates.
+- `docs/` guides including migration and evidence-first operation.
+
+### Changed
+- `package.json` scripts/metadata upgraded for v0.2.
+- Validation pipeline extended with docs and security checks.
+- Existing v0.1 structure preserved with compatibility updates.
+
+### Validation baseline executed (pre-change)
+- `npm ci` ✅
+- `npm run validate` ✅
+- `npm test` ✅
+
+### Limitations
+- YAML config is example-only (JSON is machine-ready example).
+- Context planner is deterministic keyword/rule based.
+- Mutable platform details must be verified against official docs.

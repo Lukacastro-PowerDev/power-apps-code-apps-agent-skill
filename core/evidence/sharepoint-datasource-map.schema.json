@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/sharepoint-datasource-map.schema.json",
+  "title": "SharePointDatasourceMap",
+  "type": "object",
+  "required": ["kind", "siteUrl", "list", "fields", "permissions"],
+  "properties": {
+    "kind": { "const": "sharepoint" },
+    "siteUrl": { "type": "string", "minLength": 1 },
+    "list": {
+      "type": "object",
+      "required": ["displayName", "internalName"],
+      "properties": {
+        "displayName": { "type": "string" },
+        "internalName": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "fields": {
+      "type": "array",
+      "items": { "$ref": "field-contract.schema.json" },
+      "minItems": 1
+    },
+    "permissions": { "$ref": "permission-matrix.schema.json" }
+  },
+  "additionalProperties": false
+}

@@ -1,18 +1,19 @@
-# CONTRIBUTING
+# CONTRIBUTING (v0.2)
 
-## How to contribute
-1. Open an issue describing the gap.
-2. Propose changes with clear scope and evidence.
-3. Keep examples safe and schema-explicit.
+## Contribution flow
+1. Open issue with objective and evidence.
+2. Keep scope minimal and coherent.
+3. Update docs/index/registry when adding new packs.
 4. Run:
    ```bash
-   npm install
+   npm ci
    npm run validate
    npm test
+   npm run evals
    ```
+5. Update `CHANGELOG.md`.
 
-## Contribution quality bar
-- Keep MUST/SHOULD/MAY distinctions clear.
-- Avoid non-verifiable claims.
-- Include validations and Definition of Done in skill docs.
-- Update `CHANGELOG.md`.
+## Quality bar
+- No invented schemas.
+- Explicit security/accessibility considerations.
+- Deterministic validations must pass or limitations must be documented.
