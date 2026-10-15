@@ -1,0 +1,6 @@
+{
+  "id": "build-test-report",
+  "prompt": "Run build, test, and report.",
+  "required": ["npm run validate", "npm test", "final report"],
+  "forbidden": ["skip tests"]
+}

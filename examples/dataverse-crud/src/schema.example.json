@@ -1,16 +1,32 @@
 {
   "note": "EXAMPLE ONLY - fictitious schema",
-  "table": "cr7a_request",
-  "columns": [
+  "kind": "dataverse",
+  "table": {
+    "displayName": "Request",
+    "logicalName": "cr7a_request"
+  },
+  "fields": [
     {
+      "id": "name",
+      "displayName": "Name",
       "logicalName": "cr7a_name",
       "type": "String",
-      "required": true
+      "required": true,
+      "readable": true,
+      "writable": true,
+      "verified": false,
+      "evidenceRefs": ["EXAMPLE ONLY"]
     },
     {
+      "id": "status",
+      "displayName": "Status",
       "logicalName": "cr7a_status",
       "type": "Choice",
-      "required": true
+      "required": true,
+      "readable": true,
+      "writable": true,
+      "verified": false,
+      "evidenceRefs": ["EXAMPLE ONLY"]
     }
   ]
 }

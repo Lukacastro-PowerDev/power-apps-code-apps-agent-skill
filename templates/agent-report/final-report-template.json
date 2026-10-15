@@ -1,0 +1,26 @@
+{
+  "$schema": "../../core/planning/execution-report.schema.json",
+  "taskSummary": {
+    "objective": "",
+    "scope": ""
+  },
+  "evidenceUsed": {
+    "observedSchemaFiles": [],
+    "generatedServicesModelsReviewed": [],
+    "nonVerifiedAssumptions": []
+  },
+  "changes": {
+    "filesChanged": [],
+    "patternsTemplatesApplied": []
+  },
+  "validation": {
+    "commandsRun": [],
+    "results": []
+  },
+  "securityAccessibility": {
+    "securityChecks": [],
+    "accessibilityChecks": []
+  },
+  "risksLimitations": [],
+  "nextSteps": []
+}

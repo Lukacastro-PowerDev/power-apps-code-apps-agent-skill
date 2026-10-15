@@ -1,0 +1,54 @@
+{
+  "version": "0.2.0",
+  "packs": [
+    {
+      "id": "sharepoint-core",
+      "domain": "sharepoint",
+      "artifacts": [
+        "skills/sharepoint/schema-and-internal-names.md",
+        "skills/sharepoint/crud-pagination-filters.md",
+        "skills/sharepoint/field-types-choice-lookup-person-date-attachments.md"
+      ]
+    },
+    {
+      "id": "dataverse-core",
+      "domain": "dataverse",
+      "artifacts": [
+        "skills/dataverse/entities-relationships-types.md",
+        "skills/dataverse/crud-security-pagination-errors.md"
+      ]
+    },
+    {
+      "id": "platform-alm",
+      "domain": "platform",
+      "artifacts": [
+        "skills/platform/power-platform-cli.md",
+        "skills/platform/solutions.md",
+        "skills/platform/environment-strategy.md",
+        "skills/platform/environment-variables.md",
+        "skills/platform/connection-references.md",
+        "skills/platform/deployment-pipelines.md",
+        "skills/platform/dlp-and-governance.md",
+        "skills/platform/rollback-and-release.md"
+      ]
+    },
+    {
+      "id": "ui-core",
+      "domain": "ui",
+      "artifacts": [
+        "skills/ui/design-system-and-layouts.md",
+        "skills/ui/forms-tables-navigation-dialogs.md",
+        "skills/ui/states-accessibility-i18n.md",
+        "skills/ui/product-templates.md"
+      ]
+    },
+    {
+      "id": "integrations-core",
+      "domain": "integrations",
+      "artifacts": [
+        "skills/integrations/power-automate-graph-sql-functions.md",
+        "skills/integrations/custom-connectors-rest-throttling.md"
+      ]
+    }
+  ]
+}

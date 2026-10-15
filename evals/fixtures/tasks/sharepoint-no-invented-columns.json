@@ -1,0 +1,6 @@
+{
+  "id": "sharepoint-no-invented-columns",
+  "prompt": "Use only observed SharePoint columns.",
+  "required": ["observed schema", "internal name"],
+  "forbidden": ["invented column"]
+}

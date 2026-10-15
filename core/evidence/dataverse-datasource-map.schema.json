@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/dataverse-datasource-map.schema.json",
+  "title": "DataverseDatasourceMap",
+  "type": "object",
+  "required": ["kind", "table", "fields", "permissions"],
+  "properties": {
+    "kind": { "const": "dataverse" },
+    "table": {
+      "type": "object",
+      "required": ["displayName", "logicalName"],
+      "properties": {
+        "displayName": { "type": "string" },
+        "logicalName": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "fields": {
+      "type": "array",
+      "items": { "$ref": "field-contract.schema.json" },
+      "minItems": 1
+    },
+    "permissions": { "$ref": "permission-matrix.schema.json" }
+  },
+  "additionalProperties": false
+}

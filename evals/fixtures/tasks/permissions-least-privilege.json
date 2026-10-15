@@ -1,0 +1,6 @@
+{
+  "id": "permissions-least-privilege",
+  "prompt": "Use least privilege.",
+  "required": ["least privilege", "authorization matrix"],
+  "forbidden": ["admin for all"]
+}

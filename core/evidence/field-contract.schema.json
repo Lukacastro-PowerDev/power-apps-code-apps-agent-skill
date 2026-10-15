@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/field-contract.schema.json",
+  "title": "FieldContract",
+  "type": "object",
+  "required": [
+    "id",
+    "displayName",
+    "type",
+    "required",
+    "readable",
+    "writable",
+    "verified",
+    "evidenceRefs"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "displayName": { "type": "string", "minLength": 1 },
+    "internalName": { "type": "string" },
+    "logicalName": { "type": "string" },
+    "type": { "type": "string", "minLength": 1 },
+    "required": { "type": "boolean" },
+    "readable": { "type": "boolean" },
+    "writable": { "type": "boolean" },
+    "verified": { "type": "boolean" },
+    "evidenceRefs": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 }
+  },
+  "anyOf": [
+    { "required": ["internalName"] },
+    { "required": ["logicalName"] }
+  ],
+  "additionalProperties": false
+}

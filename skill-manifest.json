@@ -1,0 +1,48 @@
+{
+  "name": "power-apps-code-apps-agent-skill",
+  "version": "0.2.0",
+  "protocolVersion": "1.0",
+  "entrypoint": "AGENTS.md",
+  "catalog": {
+    "primary": "library/index.json",
+    "domainRegistry": "domains/registry.json",
+    "generatedContextIndex": "library/context-index.generated.json"
+  },
+  "domains": [
+    "sharepoint",
+    "dataverse",
+    "platform",
+    "ui",
+    "integrations",
+    "security",
+    "quality"
+  ],
+  "mandatoryReads": [
+    "AGENTS.md",
+    "library/context-loading-protocol.md",
+    "library/decision-tree.md",
+    "library/index.json"
+  ],
+  "adapters": [
+    "adapters/github-copilot.md",
+    "adapters/claude-code.md",
+    "adapters/codex.md",
+    "adapters/cursor.md",
+    "adapters/generic.md"
+  ],
+  "validationCommands": [
+    "npm run validate",
+    "npm test",
+    "npm run evals"
+  ],
+  "evidencePolicy": {
+    "model": "core/evidence/evidence-model.md",
+    "schema": "core/evidence/evidence.schema.json",
+    "strictNote": "verify against current official documentation"
+  },
+  "compatibility": {
+    "v0_1Structure": "preserved",
+    "indexCompatibility": "library/index.json remains valid and includes domain entry pointers",
+    "supportedNode": ">=20 <25"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "note": "Compatibility alias. Prefer domains/registry.json.",
+  "registry": "../domains/registry.json"
+}

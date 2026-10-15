@@ -69,19 +69,29 @@ for (const e of raw.entries) {
 }
 
 const markdownFiles = ["README.md", "AGENTS.md", "ARCHITECTURE.md", "SECURITY.md", "GOVERNANCE.md", "CONTRIBUTING.md", "CHANGELOG.md", "CODE_OF_CONDUCT.md"]
-  .concat(walk("library"), walk("skills"), walk("templates"), walk("examples"), walk("tests"), walk("adapters"))
+  .concat(walk("library"), walk("skills"), walk("templates"), walk("examples"), walk("tests"), walk("adapters"), walk("docs"), walk("core"), walk(".agent"))
   .filter((f) => f.endsWith(".md"));
 for (const file of markdownFiles) {
   const content = readFileSync(file, "utf8");
   validateInternalLinks(file, content);
 }
 
-const templateCodeFiles = walk("templates").filter((f) => f.endsWith(".ts") || f.endsWith(".tsx") || f.endsWith(".md"));
+const templateCodeFiles = walk("templates").filter((f) => f.endsWith(".ts") || f.endsWith(".tsx"));
 for (const file of templateCodeFiles) {
   const content = readFileSync(file, "utf8");
   if (!content.includes("EXAMPLE ONLY") && !content.includes("TODO:")) {
-    console.error(`Template file must keep placeholder marker (EXAMPLE ONLY or TODO:): ${file}`);
+    console.error(`Template code file must keep placeholder marker (EXAMPLE ONLY or TODO:): ${file}`);
     process.exit(1);
+  }
+}
+
+const registry = JSON.parse(readFileSync("domains/registry.json", "utf8")) as { packs: Array<{ artifacts: string[] }> };
+for (const pack of registry.packs) {
+  for (const artifact of pack.artifacts) {
+    if (!existsSync(artifact)) {
+      console.error(`Domain registry references missing artifact: ${artifact}`);
+      process.exit(1);
+    }
   }
 }
 

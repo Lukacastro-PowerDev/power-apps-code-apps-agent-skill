@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/schemas/evidence.schema.json",
+  "title": "EvidenceRecord",
+  "type": "object",
+  "required": ["id", "level", "statement", "source", "authority", "scope", "recordedAt"],
+  "properties": {
+    "id": { "type": "string", "minLength": 3 },
+    "level": {
+      "type": "string",
+      "enum": ["observed", "generated", "official", "documented", "example", "inferred", "unverified"]
+    },
+    "statement": { "type": "string", "minLength": 3 },
+    "source": {
+      "type": "object",
+      "required": ["kind", "reference"],
+      "properties": {
+        "kind": { "type": "string", "enum": ["file", "url", "issue", "discussion", "other"] },
+        "reference": { "type": "string", "minLength": 3 },
+        "verifiedAt": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "authority": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+    "recency": { "type": "string", "enum": ["stale", "recent", "current", "unknown"], "default": "unknown" },
+    "scope": { "type": "string", "enum": ["task", "repo", "platform", "org", "global"] },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1, "default": 0.5 },
+    "recordedAt": { "type": "string", "format": "date-time" },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": false
+}

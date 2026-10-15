@@ -1,20 +1,26 @@
-# SECURITY POLICY
+# SECURITY POLICY (v0.2)
 
-## Supported scope
-This repository provides standards, templates, and examples. It is not a deployment artifact.
+## Scope
+Repository provides guidance, templates, and deterministic checks.
 
-## Reporting vulnerabilities
-If you find a vulnerability in this repository content, open a private security report through GitHub Security Advisories when available, or open an issue without sensitive details.
+## Baseline
+- No credentials, tokens, tenant IDs, connection IDs, or personal data.
+- Least privilege required.
+- Safe logging and input validation required.
 
-## Security requirements for contributed content
-- No secrets, tokens, real tenant IDs, real connection IDs, or personal data.
-- All examples must be labeled as sample/fake when not project-observed.
-- Include least-privilege guidance and environment boundary notes.
-- Include input validation and safe logging practices.
+## Security modes
+See `core/policies/security-modes.md`:
+- advisory
+- standard
+- strict
+- regulated
 
-## Secure development checklist
-- Threat model considered.
-- Data minimization documented.
-- Authentication/authorization assumptions explicit.
-- Injection/XSS risk reviewed.
-- Dependencies reviewed for known advisories.
+## Gates
+Run:
+```bash
+npm run validate:security
+```
+
+Security docs:
+- `skills/security/security-gates.md`
+- `skills/security/authorization-matrix.md`

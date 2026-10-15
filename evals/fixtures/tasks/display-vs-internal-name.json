@@ -1,0 +1,6 @@
+{
+  "id": "display-vs-internal-name",
+  "prompt": "Differentiate display and internal names.",
+  "required": ["display name", "internal name"],
+  "forbidden": ["display name equals internal name always"]
+}

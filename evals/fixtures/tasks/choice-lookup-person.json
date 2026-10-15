@@ -1,0 +1,6 @@
+{
+  "id": "choice-lookup-person",
+  "prompt": "Handle SharePoint Choice, Lookup, Person.",
+  "required": ["choice", "lookup", "person"],
+  "forbidden": ["free-text everything"]
+}

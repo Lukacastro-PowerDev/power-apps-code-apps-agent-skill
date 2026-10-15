@@ -1,18 +1,32 @@
 {
   "note": "EXAMPLE ONLY - fictitious schema",
-  "list": "Requests",
+  "kind": "sharepoint",
+  "list": {
+    "displayName": "Requests",
+    "internalName": "Requests"
+  },
   "fields": [
     {
+      "id": "title",
       "displayName": "Title",
       "internalName": "Title",
       "type": "Text",
-      "required": true
+      "required": true,
+      "readable": true,
+      "writable": true,
+      "verified": false,
+      "evidenceRefs": ["EXAMPLE ONLY"]
     },
     {
+      "id": "priority",
       "displayName": "Priority",
       "internalName": "Priority",
       "type": "Choice",
-      "required": true
+      "required": true,
+      "readable": true,
+      "writable": true,
+      "verified": false,
+      "evidenceRefs": ["EXAMPLE ONLY"]
     }
   ]
 }

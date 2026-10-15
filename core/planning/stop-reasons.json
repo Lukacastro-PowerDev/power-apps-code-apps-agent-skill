@@ -1,0 +1,9 @@
+{
+  "stopReasons": [
+    "missing-schema-evidence",
+    "conflicting-schema-evidence",
+    "ambiguous-permission-model",
+    "unsafe-request",
+    "environment-not-verifiable"
+  ]
+}

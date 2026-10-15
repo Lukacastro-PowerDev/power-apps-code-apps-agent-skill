@@ -1,102 +1,93 @@
-# power-apps-code-apps-agent-skill
+# power-apps-code-apps-agent-skill (v0.2)
 
-Universal, evidence-driven skill library for AI agents that build production-grade Power Apps Code Apps.
+Universal, evidence-first operational skill for AI agents that build Power Apps Code Apps.
 
-## Value proposition
-- Prevents schema hallucination (especially SharePoint internal names).
-- Guides secure, testable, accessible implementation.
-- Supports SharePoint-first projects with Dataverse support.
-- Works with GitHub Copilot, Claude Code, Codex, Cursor, and compatible agents.
+## What this skill is
+- A strict **operational core** (`AGENTS.md`, `core/`, `skill-manifest.json`).
+- Domain packs loaded on demand (SharePoint-first, Dataverse, Platform ALM, UI, Integrations).
+- Deterministic local CLI + validations + evals.
 
-## Quick start
-1. Open `AGENTS.md` first.
-2. Follow `library/context-loading-protocol.md` to load only relevant docs.
-3. Use `library/decision-tree.md` to classify the task.
-4. Resolve task-specific docs through `library/index.json`.
-5. Run validations:
-   ```bash
-   npm run validate
-   npm test
-   ```
+## What this skill is not
+- Not a promise that one agent “knows everything”.
+- Not a source of mutable platform truth without verification.
+- Not a deployment artifact with secrets or tenant-bound data.
 
-## Início rápido (PT-BR)
-1. Leia `AGENTS.md`.
-2. Use `library/context-loading-protocol.md` para carregar contexto incremental.
-3. Use `library/decision-tree.md` para classificar a tarefa.
-4. Consulte `library/index.json` para localizar playbooks e templates.
-5. Execute:
-   ```bash
-   npm run validate
-   npm test
-   ```
+## v0.2 scope and compatibility
+- v0.1 documentation structure is preserved and extended.
+- `library/index.json` remains compatible.
+- New manifest, schemas, context planner, packer, security gates, and eval runner are added.
 
-## Library structure
+## Quick start (universal)
+```bash
+npm ci
+npm run validate
+npm test
+npm run context -- --task "Implement SharePoint CRUD using observed schema"
+npm run evals
+npm run pack
+```
+
+## Installation and usage
+- Clone/copy repository as standards library.
+- Use local CLI via Node:
+  - `node dist/scripts/cli.js inspect <path>`
+  - `node dist/scripts/cli.js context --task "..."`
+  - `node dist/scripts/cli.js validate`
+  - `node dist/scripts/cli.js pack`
+  - `node dist/scripts/cli.js report --input <path>`
+
+## Agent task flow
+1. Read mandatory docs from manifest.
+2. Generate context plan.
+3. Collect evidence artifacts.
+4. Implement minimal coherent change.
+5. Run validations, tests, evals.
+6. Produce final report (`templates/agent-report/`).
+
+## Context selection
+Use `library/index.json` + `domains/registry.json` and load only required artifacts.
+
+## SharePoint and Dataverse
+- SharePoint: never invent internal names.
+- Dataverse: separate display vs logical names.
+- All mutable details: **verify against current official documentation**.
+
+## ALM, security, UI, and tests
+- ALM domain pack: `skills/platform/`.
+- Security gates and authorization matrix: `skills/security/` + `templates/authorization-matrix/`.
+- UI pack with states/WCAG basics: `skills/ui/`.
+- Deterministic evals runner: `evals/`.
+
+## Structure
 ```text
-AGENTS.md
-library/
+core/
+domains/
 skills/
 templates/
-examples/
-scripts/
-tests/
+docs/
+evals/
+library/
 adapters/
 ```
 
-## Agent compatibility
-- GitHub Copilot: `adapters/github-copilot.md`
-- Claude Code: `adapters/claude-code.md`
-- Codex: `adapters/codex.md`
-- Cursor: `adapters/cursor.md`
-- Generic adapter: `adapters/generic.md`
+## Adapters
+- GitHub Copilot, Claude Code, Codex, Cursor, Generic (`adapters/`).
 
-## Use cases
-- Create SharePoint CRUD pages with strict schema discipline.
-- Build Dataverse flows with environment-aware security.
-- Add dashboard, master-detail, and approval workflows.
-- Run security/quality validations before final output.
-
-## Decision and execution flow
-```mermaid
-flowchart TD
-  A[Read AGENTS.md] --> B[Classify task in decision-tree]
-  B --> C[Load minimal context via protocol]
-  C --> D[Select pattern/template from index.json]
-  D --> E[Implement with security + quality checks]
-  E --> F[Run validate scripts + tests]
-  F --> G[Final report with evidence]
-```
-
-## Installation / copy / consult
-- **Clone as a reference repository** and point your agent to `AGENTS.md`.
-- **Copy selected folders** (`library`, `skills`, `templates`) into internal standards repos.
-- **Programmatic access**: parse `library/index.json` and filter by tags/category.
-
-## Example prompts
-- "Use AGENTS.md and the context-loading protocol. Build a SharePoint CRUD page for observed schema only."
-- "Classify this task using decision-tree and return minimal docs list before coding."
-- "Perform security and quality DoD checks and produce final report in universal format."
-
-## Recommended stacks and trade-offs
-See `ARCHITECTURE.md` for the matrix:
-- Recommended: React + TypeScript + Vite + service/data layer + schema validation + tests.
-- Acceptable: alternatives with equivalent guarantees.
-- Avoid: direct HTTP bypassing generated services, untyped payloads, and schema guessing.
+## Português / English
+- PT-BR operation guide: `docs/operacao-ptbr.md`
+- English quick guides: `docs/getting-started.md`
 
 ## Roadmap
-- **v0.1**: core operational docs, index, validation scripts, base examples.
-- **v0.2**: richer examples, stricter rubric automation, more adapters.
-- **Future**: benchmark packs, telemetry quality gates, multi-tenant policy packs.
+- v0.2: operational core + deterministic tooling + initial domain packs.
+- v0.3: richer executable checks and expanded domain templates.
+- v1.0: hardened governance and broader adoption patterns.
 
-## Contributing
-See `CONTRIBUTING.md` and `GOVERNANCE.md`.
-
-## Public project quality notes
-- Badges intentionally omitted unless real CI/release endpoints are configured.
-- Official Power Platform details can change; verify against current official documentation.
+## Real limitations
+- YAML config is example-only unless converted manually to JSON.
+- Context planning is deterministic keyword/rule based (not semantic NLP).
+- Platform behavior can change; always validate against official docs.
 
 ## Official references
-- Power Apps Code Apps overview: https://learn.microsoft.com/en-us/power-apps/developer/code-apps/overview
-- SharePoint operations for Code Apps: https://learn.microsoft.com/en-us/power-apps/developer/code-apps/how-to/sharepoint-operations
-- Microsoft PowerAppsCodeApps repository: https://github.com/microsoft/PowerAppsCodeApps
-
-Some platform details can change over time; verify against current official documentation.
+- https://learn.microsoft.com/en-us/power-apps/developer/code-apps/overview
+- https://learn.microsoft.com/en-us/power-apps/developer/code-apps/how-to/sharepoint-operations
+- https://github.com/microsoft/PowerAppsCodeApps
