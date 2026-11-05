@@ -41,7 +41,7 @@
     "node": ">=20 <25"
   },
   "devDependencies": {
-    "@types/node": "^22.13.14",
+    "@types/node": "^26.6.6",
     "typescript": "^5.9.3"
   },
   "private": true
