@@ -15,7 +15,9 @@
   },
   "include": [
     "scripts/**/*.ts",
-    "tests/**/*.ts"
+    "tests/**/*.ts",
+    "tools/**/*.ts",
+    "evals/**/*.ts"
   ],
   "exclude": [
     "node_modules",

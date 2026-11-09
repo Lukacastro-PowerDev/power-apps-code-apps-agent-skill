@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Datasource map",
+  "type": "object",
+  "required": ["source", "kind", "status", "evidence"],
+  "properties": {
+    "source": { "type": "string" },
+    "kind": { "enum": ["sharepoint", "dataverse"] },
+    "status": { "enum": ["observed", "partial", "unknown"] },
+    "siteOrEnvironment": { "type": "string" },
+    "entityOrList": { "type": "string" },
+    "fields": { "type": "array", "items": { "type": "string" } },
+    "relationships": { "type": "array", "items": { "type": "string" } },
+    "evidence": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

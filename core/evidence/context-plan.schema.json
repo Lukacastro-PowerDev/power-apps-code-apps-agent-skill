@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Deterministic context plan",
+  "type": "object",
+  "required": ["task", "tags", "documents", "requiredEvidence", "blocks", "validations", "confidence", "unknowns"],
+  "properties": {
+    "task": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "documents": { "type": "array", "items": { "type": "string" } },
+    "requiredEvidence": { "type": "array", "items": { "type": "string" } },
+    "blocks": { "type": "array", "items": { "type": "string" } },
+    "validations": { "type": "array", "items": { "type": "string" } },
+    "confidence": { "enum": ["high", "medium", "low"] },
+    "unknowns": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

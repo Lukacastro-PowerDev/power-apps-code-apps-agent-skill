@@ -1,0 +1,18 @@
+{
+  "name": "power-apps-code-apps-agent-skill",
+  "version": "0.2.0",
+  "protocolVersion": "0.2",
+  "entrypoint": "AGENTS.md",
+  "catalog": "library/index.json",
+  "domains": ["sharepoint", "dataverse", "platform-alm", "ui", "integrations", "security", "quality"],
+  "requiredReads": ["AGENTS.md", "library/context-loading-protocol.md", "library/decision-tree.md", "library/index.json"],
+  "adapters": ["adapters/github-copilot.md", "adapters/claude-code.md", "adapters/codex.md", "adapters/cursor.md", "adapters/generic.md"],
+  "validationCommands": ["npm run build", "npm run validate", "npm test", "npm run evals"],
+  "evidencePolicy": "core/evidence/evidence-model.md",
+  "compatibility": {
+    "previousVersion": "0.1.x",
+    "libraryIndex": "library/index.json remains the compatible catalog",
+    "node": ">=20",
+    "yaml": "The example YAML is documentation only; JSON or explicit CLI arguments are consumed by tools."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Universal execution report",
+  "type": "object",
+  "required": ["version", "status", "objective", "evidence", "changes", "validation", "unknowns"],
+  "properties": {
+    "version": { "const": "0.2" },
+    "status": { "enum": ["completed", "blocked", "partial", "failed"] },
+    "objective": { "type": "string" },
+    "scope": { "type": "array", "items": { "type": "string" } },
+    "evidence": { "type": "array", "items": { "type": "string" } },
+    "changes": { "type": "array", "items": { "type": "string" } },
+    "validation": { "type": "array", "items": { "type": "string" } },
+    "security": { "type": "array", "items": { "type": "string" } },
+    "accessibility": { "type": "array", "items": { "type": "string" } },
+    "unknowns": { "type": "array", "items": { "type": "string" } },
+    "nextSteps": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

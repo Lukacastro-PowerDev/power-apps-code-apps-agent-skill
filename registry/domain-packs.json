@@ -1,0 +1,11 @@
+{
+  "version": "0.2",
+  "packs": [
+    { "id": "sharepoint", "status": "stable", "tags": ["sharepoint", "schema", "crud"], "path": "skills/sharepoint" },
+    { "id": "dataverse", "status": "stable", "tags": ["dataverse", "table", "logical-name"], "path": "skills/dataverse" },
+    { "id": "platform-alm", "status": "documentary-actionable", "tags": ["alm", "solutions", "environment"], "path": "skills/platform" },
+    { "id": "ui", "status": "documentary-actionable", "tags": ["ui", "accessibility", "states"], "path": "skills/ui" },
+    { "id": "integrations", "status": "conditional", "tags": ["power-automate", "graph", "resilience"], "path": "skills/integrations" },
+    { "id": "security", "status": "stable", "tags": ["security", "authorization", "gates"], "path": "skills/security" }
+  ]
+}

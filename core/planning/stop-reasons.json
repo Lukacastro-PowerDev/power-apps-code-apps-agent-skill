@@ -1,0 +1,10 @@
+{
+  "version": "0.2",
+  "reasons": [
+    { "id": "missing-schema", "description": "Required datasource or field evidence is missing." },
+    { "id": "conflicting-evidence", "description": "Authoritative artifacts disagree." },
+    { "id": "ambiguous-permission", "description": "Authorization intent or boundary is unclear." },
+    { "id": "unverified-platform-behavior", "description": "Mutable platform behavior needs official verification." },
+    { "id": "unsafe-request", "description": "The requested behavior would weaken security or expose secrets." }
+  ]
+}

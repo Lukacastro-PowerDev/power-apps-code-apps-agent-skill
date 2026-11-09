@@ -1,0 +1,6 @@
+{
+  "resource": "EXAMPLE ONLY: fictional resource",
+  "roles": [
+    { "role": "Reader", "operations": ["read"], "scope": "EXAMPLE ONLY: project scope", "evidence": ["evidence.example"] }
+  ]
+}

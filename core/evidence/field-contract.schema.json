@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Field contract",
+  "type": "object",
+  "required": ["displayName", "type", "required", "readable", "writable", "verified", "evidence"],
+  "properties": {
+    "displayName": { "type": "string" },
+    "internalName": { "type": ["string", "null"] },
+    "logicalName": { "type": ["string", "null"] },
+    "type": { "type": "string" },
+    "required": { "type": "boolean" },
+    "readable": { "type": "boolean" },
+    "writable": { "type": "boolean" },
+    "verified": { "type": "boolean" },
+    "evidence": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+  },
+  "additionalProperties": false
+}

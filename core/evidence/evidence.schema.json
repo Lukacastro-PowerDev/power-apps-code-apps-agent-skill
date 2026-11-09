@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:power-apps-code-apps-agent-skill:evidence",
+  "title": "Power Apps Skill Evidence",
+  "type": "object",
+  "required": ["id", "kind", "authority", "scope", "source", "confidence"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+    "kind": { "enum": ["observed", "generated", "official", "documented", "example", "inferred", "unverified"] },
+    "authority": { "enum": ["project-artifact", "generated-service", "official-documentation", "repository-documentation", "example", "agent-inference", "unknown"] },
+    "recency": { "type": "string" },
+    "scope": { "enum": ["project", "environment", "tenant", "repository", "public", "unknown"] },
+    "source": { "type": "string", "minLength": 1 },
+    "locator": { "type": "string" },
+    "claim": { "type": "string" },
+    "confidence": { "enum": ["high", "medium", "low", "unknown"] },
+    "verifiedAt": { "type": "string" }
+  },
+  "additionalProperties": false
+}

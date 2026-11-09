@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Authorization matrix",
+  "type": "object",
+  "required": ["resource", "roles"],
+  "properties": {
+    "resource": { "type": "string" },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["role", "operations", "evidence"],
+        "properties": {
+          "role": { "type": "string" },
+          "operations": { "type": "array", "items": { "enum": ["read", "create", "update", "delete", "admin"] } },
+          "scope": { "type": "string" },
+          "evidence": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
