@@ -1,102 +1,92 @@
-# power-apps-code-apps-agent-skill
+# Power Apps Code Apps Agent Skill
 
-Universal, evidence-driven skill library for AI agents that build production-grade Power Apps Code Apps.
+Universal, evidence-first operational skill for agents building Power Apps
+Code Apps. SharePoint remains the primary path; Dataverse, ALM, UI, security,
+quality, and integrations are on-demand domain packs.
 
-## Value proposition
-- Prevents schema hallucination (especially SharePoint internal names).
-- Guides secure, testable, accessible implementation.
-- Supports SharePoint-first projects with Dataverse support.
-- Works with GitHub Copilot, Claude Code, Codex, Cursor, and compatible agents.
+## What it is / is not
+
+It is a small universal core, deterministic context planner, formal evidence
+schemas, safety gates, templates, evaluations, and host adapters. It is not a
+published npm package, a replacement for Microsoft documentation, an
+authenticated connector, or a promise that an agent knows every platform
+capability.
 
 ## Quick start
-1. Open `AGENTS.md` first.
-2. Follow `library/context-loading-protocol.md` to load only relevant docs.
-3. Use `library/decision-tree.md` to classify the task.
-4. Resolve task-specific docs through `library/index.json`.
-5. Run validations:
-   ```bash
-   npm run validate
-   npm test
-   ```
 
-## Início rápido (PT-BR)
-1. Leia `AGENTS.md`.
-2. Use `library/context-loading-protocol.md` para carregar contexto incremental.
-3. Use `library/decision-tree.md` para classificar a tarefa.
-4. Consulte `library/index.json` para localizar playbooks e templates.
-5. Execute:
-   ```bash
-   npm run validate
-   npm test
-   ```
-
-## Library structure
-```text
-AGENTS.md
-library/
-skills/
-templates/
-examples/
-scripts/
-tests/
-adapters/
+```bash
+npm ci
+npm run context -- --task "Create a SharePoint CRUD page using observed schema"
+npm run validate
+npm test
+npm run evals
 ```
 
-## Agent compatibility
-- GitHub Copilot: `adapters/github-copilot.md`
-- Claude Code: `adapters/claude-code.md`
-- Codex: `adapters/codex.md`
-- Cursor: `adapters/cursor.md`
-- Generic adapter: `adapters/generic.md`
+The local CLI is available after `npm run build`:
 
-## Use cases
-- Create SharePoint CRUD pages with strict schema discipline.
-- Build Dataverse flows with environment-aware security.
-- Add dashboard, master-detail, and approval workflows.
-- Run security/quality validations before final output.
-
-## Decision and execution flow
-```mermaid
-flowchart TD
-  A[Read AGENTS.md] --> B[Classify task in decision-tree]
-  B --> C[Load minimal context via protocol]
-  C --> D[Select pattern/template from index.json]
-  D --> E[Implement with security + quality checks]
-  E --> F[Run validate scripts + tests]
-  F --> G[Final report with evidence]
+```bash
+node dist/tools/cli.js inspect .
+node dist/tools/cli.js context --task "Dataverse table form with authorization"
+node dist/tools/cli.js validate
+node dist/tools/cli.js pack
+node dist/tools/cli.js report --input .agent/final-report.json
 ```
 
-## Installation / copy / consult
-- **Clone as a reference repository** and point your agent to `AGENTS.md`.
-- **Copy selected folders** (`library`, `skills`, `templates`) into internal standards repos.
-- **Programmatic access**: parse `library/index.json` and filter by tags/category.
+Node `>=20` is supported. The YAML file is an example for project
+configuration; v0.2 does not parse YAML automatically. Use JSON or explicit
+CLI arguments.
 
-## Example prompts
-- "Use AGENTS.md and the context-loading protocol. Build a SharePoint CRUD page for observed schema only."
-- "Classify this task using decision-tree and return minimal docs list before coding."
-- "Perform security and quality DoD checks and produce final report in universal format."
+## Universal agent flow
 
-## Recommended stacks and trade-offs
-See `ARCHITECTURE.md` for the matrix:
-- Recommended: React + TypeScript + Vite + service/data layer + schema validation + tests.
-- Acceptable: alternatives with equivalent guarantees.
-- Avoid: direct HTTP bypassing generated services, untyped payloads, and schema guessing.
+Read `AGENTS.md`, classify the task, run the context planner, collect observed
+or generated schema evidence, load only the selected pack, decide permissions
+and UI states, implement, validate, and produce the universal report. Stop for
+missing/conflicting schema or ambiguous authorization.
 
-## Roadmap
-- **v0.1**: core operational docs, index, validation scripts, base examples.
-- **v0.2**: richer examples, stricter rubric automation, more adapters.
-- **Future**: benchmark packs, telemetry quality gates, multi-tenant policy packs.
+For SharePoint, never infer internal names from display names. For Dataverse,
+never infer logical names or relationships. Fictional fixtures are marked
+`EXAMPLE ONLY`. Mutable platform behavior must say **verify against current official documentation** and cite an official URL.
 
-## Contributing
-See `CONTRIBUTING.md` and `GOVERNANCE.md`.
+## Structure
 
-## Public project quality notes
-- Badges intentionally omitted unless real CI/release endpoints are configured.
-- Official Power Platform details can change; verify against current official documentation.
+`core/` contains the protocol, evidence, planning, quality, and policy
+contracts. `registry/` and `library/index.json` catalog packs. `skills/`
+contains SharePoint, Dataverse, platform/ALM, UI, integrations, security, and
+quality guidance. `tools/` provides deterministic context, validation,
+reporting, packing, and CLI commands. `evals/` provides local rule-based
+grading. `.agent/` documents project-local artifacts. `adapters/` maps the
+contract to Copilot, Claude Code, Codex, Cursor, and generic hosts.
+
+## Dataverse, ALM, UI, and security
+
+Use the Dataverse pack only with observed metadata or generated services.
+Use the ALM pack for environment strategy, solutions, variables, connection
+references, pipelines, DLP, releases, and rollback decisions. Use UI packs for
+responsive states, forms, tables, dialogs, WCAG, internationalization, and
+visual review. Use authorization matrices and security modes (`advisory`,
+`standard`, `strict`, `regulated`) before release.
+
+## Configuration and artifacts
+
+Start from `power-apps-skill.config.example.yaml`; it is documentation only.
+Project artifacts live under `.agent/`: task, evidence, schema map, plans,
+reviews, validation results, and final report. Never store credentials,
+tenant identifiers, connection IDs, or personal data.
+
+## Compatibility, roadmap, limitations
+
+v0.2 preserves the v0.1 folders, adapters, examples, templates, and catalog
+shape. v0.3 can add richer schema adapters, project-specific configuration
+parsing, and broader deterministic benchmarks. v1 can stabilize pack
+interfaces and release governance. No external API or connector behavior is
+implemented by this repository; verify current official documentation.
+
+Documentation is available in English and Portuguese (`docs/operacao-pt-br.md`).
+See `docs/migration-v0.1-to-v0.2.md`, `docs/evidence-first-workflow.md`, and
+`docs/one-skill-operating-model.md`.
 
 ## Official references
-- Power Apps Code Apps overview: https://learn.microsoft.com/en-us/power-apps/developer/code-apps/overview
-- SharePoint operations for Code Apps: https://learn.microsoft.com/en-us/power-apps/developer/code-apps/how-to/sharepoint-operations
-- Microsoft PowerAppsCodeApps repository: https://github.com/microsoft/PowerAppsCodeApps
 
-Some platform details can change over time; verify against current official documentation.
+- https://learn.microsoft.com/en-us/power-apps/developer/code-apps/overview
+- https://learn.microsoft.com/en-us/power-apps/developer/code-apps/how-to/sharepoint-operations
+- https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm

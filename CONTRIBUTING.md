@@ -6,9 +6,11 @@
 3. Keep examples safe and schema-explicit.
 4. Run:
    ```bash
-   npm install
+   npm ci
+   npm run build
    npm run validate
    npm test
+   npm run evals
    ```
 
 ## Contribution quality bar
@@ -16,3 +18,5 @@
 - Avoid non-verifiable claims.
 - Include validations and Definition of Done in skill docs.
 - Update `CHANGELOG.md`.
+- Add catalog entries for new domain packs and keep paths valid.
+- Mark all fictional schemas and fixtures `EXAMPLE ONLY`.

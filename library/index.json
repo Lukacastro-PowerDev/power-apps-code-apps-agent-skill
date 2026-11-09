@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "entries": [
     {
       "id": "playbook-sharepoint-discovery",
@@ -134,6 +134,46 @@
         "planning",
         "governance"
       ]
+    },
+    {
+      "id": "core-evidence-and-context",
+      "category": "core",
+      "whenToUse": ["Every task before implementation", "Need deterministic minimal context"],
+      "prerequisites": ["Task statement available"],
+      "relatedArtifacts": ["core/evidence/evidence-model.md", "core/evidence/evidence.schema.json", "core/evidence/context-plan.schema.json", "tools/context-plan.ts"],
+      "risks": ["Loading unrelated context", "Treating examples as schema evidence"],
+      "validations": ["Run npm run context -- --task <text>", "Record unknowns and evidence"],
+      "tags": ["core", "evidence", "context", "sharepoint", "dataverse"]
+    },
+    {
+      "id": "platform-alm-pack",
+      "category": "domain-pack",
+      "whenToUse": ["Planning environments, solutions, pipelines, or releases"],
+      "prerequisites": ["Project environment strategy and current official documentation"],
+      "relatedArtifacts": ["skills/platform/power-platform-cli.md", "skills/platform/solutions.md", "skills/platform/deployment-pipelines.md"],
+      "risks": ["Tenant-specific assumptions", "Unsupported deployment promises"],
+      "validations": ["Verify current official documentation", "Record release and rollback evidence"],
+      "tags": ["platform", "alm", "environment", "solutions"]
+    },
+    {
+      "id": "ui-quality-pack",
+      "category": "domain-pack",
+      "whenToUse": ["Building or reviewing user-facing Code App experiences"],
+      "prerequisites": ["Approved design system and accessibility target"],
+      "relatedArtifacts": ["skills/ui/loading-empty-error.md", "skills/ui/wcag-i18n-visual-regression.md", "skills/ui/patterns.md"],
+      "risks": ["Missing UI states", "Inaccessible interaction"],
+      "validations": ["Check loading, empty, error, success, and retry states", "Run accessibility review"],
+      "tags": ["ui", "accessibility", "forms", "tables"]
+    },
+    {
+      "id": "integration-resilience-pack",
+      "category": "domain-pack",
+      "whenToUse": ["Adding approved Power Platform or external integrations"],
+      "prerequisites": ["Approved contract, authorization, and data boundary"],
+      "relatedArtifacts": ["skills/integrations/custom-connectors-rest.md", "skills/integrations/throttling-resilience.md", "skills/integrations/microsoft-graph.md"],
+      "risks": ["Invented endpoints", "Unsafe retries", "Over-privileged connection"],
+      "validations": ["Verify official API documentation", "Test timeout, retry, and failure recovery"],
+      "tags": ["integrations", "graph", "power-automate", "resilience"]
     }
   ]
 }

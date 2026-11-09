@@ -1,5 +1,9 @@
 # ARCHITECTURE
 
+v0.2 uses a universal core plus domain packs loaded on demand. The core owns
+task lifecycle, evidence, reporting, quality, and security policy; packs own
+focused guidance and must not invent authority.
+
 ## Stack matrix
 | Area | Recommended | Acceptable | Avoid |
 |---|---|---|---|
@@ -17,6 +21,13 @@
 | M2 | Security + accessibility DoD enforced |
 | M3 | Automated validation and prompt evaluations |
 | M4 | Continuous quality benchmarking and governance |
+
+| Domain maturity | Coverage |
+|---|---|
+| SharePoint | Primary, schema-first CRUD and field guidance |
+| Dataverse | Schema, relationships, types, security, pagination |
+| Platform ALM | Documentary-actionable pack; verify current docs |
+| UI/integrations | Conditional patterns and safety guidance |
 
 ## Core principles
 - Feature modules with clear boundaries.

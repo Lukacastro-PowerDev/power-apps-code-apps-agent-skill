@@ -18,3 +18,10 @@ If you find a vulnerability in this repository content, open a private security 
 - Authentication/authorization assumptions explicit.
 - Injection/XSS risk reviewed.
 - Dependencies reviewed for known advisories.
+
+## Security modes
+
+Use `advisory`, `standard`, `strict`, or `regulated` as documented in
+`core/policies/security-modes.md`. The local gates are intentionally
+deterministic and partial; organizations may add approved scanners without
+making them a repository-wide secret or network dependency.

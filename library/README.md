@@ -16,3 +16,10 @@ Provide a machine-readable and human-readable catalog for selecting minimal cont
 - Do not load full repository by default.
 - Load incremental context based on confidence gaps.
 - Stop and ask when required evidence is missing.
+
+## v0.2 packs
+
+Use `registry/domain-packs.json` for structured pack metadata and
+`skill-manifest.json` for the canonical entrypoint, compatibility, and
+validation commands. The planner is deterministic and reports confidence and
+unknowns instead of pretending to understand unsupported task semantics.
